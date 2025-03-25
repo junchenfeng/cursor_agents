@@ -1,0 +1,5 @@
+mcp
+mcp[cli]
+httpx
+python-dotenv
+openai==1.68.2

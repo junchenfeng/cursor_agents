@@ -52,9 +52,9 @@ async def function(
 async def review_task(
     product_doc: str,
     test_cases: str,
-    task_plan: str,
     tech_stack: str,
     project_structure: str,
+    task_plan: str,
 ) -> str:
     prompt = f"""
     你是一个资深研发工程师，请对以下任务拆解进行评审，主要从以下几个方面进行分析：

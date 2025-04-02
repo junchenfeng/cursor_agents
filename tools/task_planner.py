@@ -89,6 +89,7 @@ async def plan_task(product_doc: str, test_cases: str, tech_stack: str, project_
 **请求路径**
 **请求参数**
 **返回结果**
+**CORS设置**（如果需要）如何设置跨域请求以确保前后端畅通
 
 # 5. 数据模型设计（如果需要）
 ## 5.1 数据模型1

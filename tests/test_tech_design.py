@@ -22,6 +22,7 @@ def test_files():
         "test_path": src_dir / "test.md",
         "tech_stack_path": src_dir / "tech_stack.md",
         "proj_structure_path": src_dir / "proj_structure.md",
+        "task_plan_path": src_dir / "task_plan.md",
         "output_path": output_dir / "task_breakdown.md",
         "review_output_path": output_dir / "task_review.md"
     }

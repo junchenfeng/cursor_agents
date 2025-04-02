@@ -1,5 +1,5 @@
 from mcp import types
-from utils import o3_mini_chat_completion
+from utils import ds_r1_chat_completions
 
 
 tool = types.Tool(
@@ -89,4 +89,5 @@ async def review_task(
     ...
     ```
     """
-    return o3_mini_chat_completion(prompt) 
+    _, response = ds_r1_chat_completions(prompt) 
+    return response

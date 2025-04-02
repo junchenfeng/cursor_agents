@@ -1,6 +1,8 @@
 from mcp import types
 from utils import ds_r1_chat_completions
+import logging
 
+logger = logging.getLogger(__name__)
 
 tool = types.Tool(
     name="task_reviewer",
@@ -36,6 +38,13 @@ async def function(
     project_structure: str,
     task_plan: str,
 ) -> list[types.TextContent]:
+    logger.info("Task reviewer input parameters:")
+    logger.info(f"Product doc length: {len(product_doc)}")
+    logger.info(f"Test cases length: {len(test_cases)}")
+    logger.info(f"Tech stack length: {len(tech_stack)}")
+    logger.info(f"Project structure length: {len(project_structure)}")
+    logger.info(f"Task plan length: {len(task_plan)}")
+    
     review_result = await review_task(product_doc, test_cases, tech_stack, project_structure, task_plan)
     return [types.TextContent(type="text", text=review_result)]
 
@@ -43,9 +52,9 @@ async def function(
 async def review_task(
     product_doc: str,
     test_cases: str,
+    task_plan: str,
     tech_stack: str,
     project_structure: str,
-    task_plan: str,
 ) -> str:
     prompt = f"""
     你是一个资深研发工程师，请对以下任务拆解进行评审，主要从以下几个方面进行分析：

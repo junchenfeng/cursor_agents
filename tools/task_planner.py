@@ -1,6 +1,8 @@
 from mcp import types
 from utils import o3_mini_chat_completion
+import logging
 
+logger = logging.getLogger(__name__)
 
 tool = types.Tool(
     name="task_planner",
@@ -32,6 +34,12 @@ async def function(
     tech_stack: str,
     project_structure: str,
 ) -> list[types.TextContent]:
+    logger.info("Task planner input parameters:")
+    logger.info(f"Product doc length: {len(product_doc)}")
+    logger.info(f"Test cases length: {len(test_cases)}")
+    logger.info(f"Tech stack length: {len(tech_stack)}")
+    logger.info(f"Project structure length: {len(project_structure)}")
+    
     tech_tasks = await plan_task(product_doc, test_cases, tech_stack, project_structure)
     return [types.TextContent(type="text", text=tech_tasks)]
 

@@ -1,0 +1,3 @@
+"""
+Cursor Agents package
+""" 
